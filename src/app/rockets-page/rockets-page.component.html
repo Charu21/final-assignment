@@ -1,0 +1,36 @@
+<br>
+<div class="container">
+  <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row" fxLayoutAlign="space-around center" class="content">
+    <div class="blocks">
+      <button button="submit" mat-raised-button onclick="location.reload();" color="primary">
+        <mat-icon color="accent">flight</mat-icon> Rockets launched in space mission events
+      </button>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="rockets.length > 0; else waitForResponse" class="complete"></div>
+  <div fxLayout="row" fxLayoutAlign="space-evenly stretch" fxLayoutGap="20px">
+    <div class="main-div" *ngFor="let rocket of rockets">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <img mat-card-avatar src="../../assets/rocket.png">
+          <mat-card-title>{{ rocket.rocket_name }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="rocket.rocket_image" [alt]="rocket.rocket_name" width="250px" height="250px">
+
+        <mat-card-content>
+          <p> {{ rocket.description }} </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button (click)="getSpecificRocket(rocket.rocket_id)" color="primary">
+            <mat-icon>menu</mat-icon> More details
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  <ng-template #waitForResponse>
+    <div class="waitingSpinner">
+      <mat-progress-spinner color="accent" mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </ng-template>

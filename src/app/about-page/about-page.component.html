@@ -1,0 +1,77 @@
+<div>
+  <br>
+  <div class="container">
+    <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row" fxLayoutAlign="space-around center" class="content">
+      <div class="blocks">
+        <button button="submit" mat-raised-button onclick="location.reload();" color="primary">
+          <mat-icon color="accent">person</mat-icon> About Us
+        </button>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div *ngIf="aboutus.length>0 ; else waitForResponse">
+    <div fxLayout="row" fxLayoutAlign="space-around center" *ngFor="let about of aboutus" class="content">
+      <mat-card class="card">
+        <mat-card-title>
+          <h3>Company Information</h3>
+        </mat-card-title>
+        <mat-card-content>
+          <div class="example-container mat-elevation-z8">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th> Title </th>
+                  <th> Information </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> Name </td>
+                  <td> {{ about.name }} </td>
+                </tr>
+                <tr>
+                  <td> Founder </td>
+                  <td> {{ about.founder }} </td>
+                </tr>
+                <tr>
+                  <td> Valuation </td>
+                  <td> {{ about.valuation }} </td>
+                </tr>
+                <tr>
+                  <td> Headquarters </td>
+                  <td>
+                <tr>
+                  <td>Address</td>
+                  <td> {{ about.headquarters.address }}</td>
+                </tr>
+                <tr>
+                  <td>City</td>
+                  <td> {{ about.headquarters.city}}</td>
+                </tr>
+                <tr>
+                  <td>State</td>
+                  <td> {{ about.headquarters.state}}</td>
+                </tr>
+                </td>
+                </tr>
+                <tr>
+                  <td>
+                    Summary
+                  </td>
+                  <td> {{ about.summary }} </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <ng-template #waitForResponse>
+    <div class="waitingSpinner">
+      <mat-progress-spinner color="accent" mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </ng-template>

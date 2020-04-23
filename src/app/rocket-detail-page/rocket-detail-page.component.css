@@ -1,0 +1,12 @@
+.mat-divider {
+    border-top-color: lightgrey;
+}
+
+.example-card {
+    width: 60%;
+    margin: 10px auto;
+}
+
+.mat-line {
+    float: left;
+}

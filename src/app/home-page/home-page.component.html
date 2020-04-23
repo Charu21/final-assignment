@@ -1,0 +1,40 @@
+<br>
+<div class="container">
+  <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row" fxLayoutAlign="space-around center" class="content">
+    <div class="blocks">
+      <button button="submit" mat-raised-button onclick="location.reload();" color="primary">
+        <mat-icon color="accent">history</mat-icon> History of space mission events
+      </button>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="events.length > 0; else waitForResponse" class="complete">
+    <div class='md-padding' layout="row" flex>
+      <div layout="row" flex>
+        <div class="parent" layout="column" *ngFor="let event of events" flex>
+          <!-- <mat-card [ngClass]="{'custom-card':true}"> -->
+          <mat-card class="example-card">
+            <mat-card-header>
+              <img mat-card-avatar src="../../assets/rocket.png">
+              <mat-card-title>{{ event.flight_number }}</mat-card-title>
+              <mat-card-subtitle>{{ event.title }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                {{ event.details }}
+              </p>
+            </mat-card-content>
+          </mat-card>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <ng-template #waitForResponse>
+    <div class="waitingSpinner">
+      <mat-progress-spinner color="accent" mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </ng-template>

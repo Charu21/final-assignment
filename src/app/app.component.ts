@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'space-app';
+  // Passing title from parent to child
+  title = 'Space Application';
+  fancyAppEventTriggered: boolean = false;
+
+  fancyApp() {
+    this.fancyAppEventTriggered = !this.fancyAppEventTriggered;
+  }
 }

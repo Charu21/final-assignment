@@ -1,0 +1,83 @@
+<br>
+<div class="container">
+  <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row" fxLayoutAlign="space-around center" class="content">
+    <div class="blocks">
+      <button button="submit" mat-raised-button onclick="location.reload();" color="primary">
+        <mat-icon color="accent">flight_takeoff</mat-icon> Rocket Details for {{ rocket_id }}
+      </button>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="rocket_details.length > 0; else waitForResponse" class="complete">
+    <div fxLayout="row" fxLayoutAlign="space-evenly center">
+      <div class="main-div" *ngFor="let rocketdetail of rocket_details">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <img mat-card-avatar src="../../assets/rocket.png">
+            <mat-card-title>{{ rocketdetail.name}}</mat-card-title>
+            <mat-card-subtitle> {{ rocketdetail.country }} </mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image [src]="rocketdetail.image" [alt]="rocketdetail.name" width="250px" height="350px">
+          <mat-card-content>
+            <mat-list>
+              <mat-list-item>
+                <mat-icon matListIcon>description</mat-icon>
+                <div mat-line> Description </div>
+                {{ rocketdetail.description }}
+              </mat-list-item>
+              <br>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <mat-icon matListIcon>flight_takeoff</mat-icon>
+                <div mat-line> First Flight on </div>
+                <div mat-line> {{ rocketdetail.first_flight }} </div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <mat-icon matListIcon>height</mat-icon>
+                <div mat-line> Height (In metres) </div>
+                <div mat-line> {{ rocketdetail.height.meters }} m </div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListIcon>height</mat-icon>
+                <div mat-line> Height (In Feet) </div>
+                <div mat-line> {{ rocketdetail.height.feet }} ft </div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+
+              <mat-list-item>
+                <mat-icon matListIcon>explore_off</mat-icon>
+                <div mat-line> Diameter (In metres) </div>
+                <div mat-line> {{ rocketdetail.diameter.meters }} m</div>
+              </mat-list-item>
+
+              <mat-list-item>
+                <mat-icon matListIcon>explore_off</mat-icon>
+                <div mat-line> Diameter (In Feet) </div>
+                <div mat-line> {{ rocketdetail.diameter.feet }} ft </div>
+              </mat-list-item>
+
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <mat-icon matListIcon>fitness_center</mat-icon>
+                <div mat-line> Mass (In kilograms) </div>
+                <div mat-line> {{ rocketdetail.mass.kg }} kgs </div>
+              </mat-list-item>
+
+              <mat-list-item>
+                <mat-icon matListIcon>fitness_center</mat-icon>
+                <div mat-line> Mass (In pounds) </div>
+                <div mat-line> {{ rocketdetail.mass.lb }} lbs </div>
+              </mat-list-item>
+
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <ng-template #waitForResponse>
+    <div class="waitingSpinner">
+      <mat-progress-spinner color="accent" mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </ng-template>

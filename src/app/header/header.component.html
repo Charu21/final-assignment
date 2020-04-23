@@ -1,0 +1,13 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+  <mat-toolbar-row>
+    <span><i class="fas fa-rocket"></i> {{appTitle}} </span>
+    <span class="spacer"></span>
+    <div class="button-item">
+      <a mat-button routerLink="/home"> Home </a>
+      <a mat-button routerLink="/rockets"> Rockets </a>
+      <a mat-button routerLink="/rocket/falcon1"> Single Rocket </a>
+      <a mat-button routerLink="/about"> About Us </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

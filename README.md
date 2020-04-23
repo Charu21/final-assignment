@@ -7,7 +7,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 2) Heavily uses mat-card for display cards and also uses **FlexLayoutModule** for proper display of modules.
 3) SpaceX apis have been called displaying routing.
 4) Progress spinner on all pages with 1 second wait.
-5) Do check out the **Beta animation** developed in the footer of the page for a mini rocket animation !
+5) Do check out the **Beta animation** developed in the footer of the page for a mini rocket animation
+triggered through passing data from footer component to app component!
 6) Clicking on top button on pages will help you reload the page.
 
 ## Development server
